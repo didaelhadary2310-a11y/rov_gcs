@@ -26,7 +26,7 @@ def main():
     bus.subscribe("input.key", on_key)
     bus.subscribe("input.device", lambda e: log.warning("device %s", e))
     bus.subscribe("profile.applied", lambda e: log.info("profile %s", e["name"]))
-    profiles = ProfileManager(bus)
+    ProfileManager(bus)
     thread = InputThread(
         bus, cfg["input"]["sample_rate_hz"], cfg["input"]["dead_zone"]
     )
