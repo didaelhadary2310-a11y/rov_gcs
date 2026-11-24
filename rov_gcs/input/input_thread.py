@@ -20,9 +20,17 @@ class InputThread(threading.Thread):
         self._stop_event = threading.Event()
         self._joysticks = {}
         self._keys = set()
+        self.profile = {}
+        bus.subscribe("profile.applied", self._on_profile)
 
     def stop(self):
         self._stop_event.set()
+
+    def _on_profile(self, event):
+        self.profile = event["data"]
+        if "dead_zone" in self.profile:
+            self.dead_zone = self.profile["dead_zone"]
+        log.info("Input now using profile %s", event["name"])
 
     def run(self):
         pygame.init()
