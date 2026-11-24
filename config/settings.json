@@ -1,0 +1,11 @@
+{
+  "input": {
+    "sample_rate_hz": 50,
+    "dead_zone": 0.1,
+    "default_profile": "default"
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "logs/gcs.log"
+  }
+}
