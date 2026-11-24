@@ -1,0 +1,10 @@
+﻿[project]
+name = "rov_gcs"
+version = "0.1.0"
+dependencies = ["pygame", "pyyaml"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
